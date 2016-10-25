@@ -18,7 +18,7 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     insert into responsavel
-    values (pNome, pCpf, pEmail, pCelular, pSenha, true);
+    values (seq_resp.nextval, pNome, pCpf, pEmail, pCelular, pSenha, true);
     --
     -- log de saida
     --
