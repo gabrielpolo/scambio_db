@@ -2,7 +2,7 @@ create or replace package body ResponsavelDD as
 --
   -- PROCEDURE DE INSERT
   --
-  create or replace procedure insertResp (
+  procedure insertResp (
          pNome      IN        responsavel.nome%TYPE,
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE,
@@ -10,7 +10,7 @@ create or replace package body ResponsavelDD as
          pSenha     IN        responsavel.senha%TYPE,
          pStatus    IN        repsonsavel.status%TYPE
   ) as
-    procedureName varchar2 := 'insertResp'
+    procedureName varchar2 := 'insertResp';
   begin
     --
     -- log de entrada
@@ -33,10 +33,10 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE DELETAR RESPONSAVEL
   --
-  create or replace procedure deleteResp (
+  procedure deleteResp (
     pinCpf  IN  responsavel.cpf%TYPE
   ) as
-    procedureName varchar2 := 'deleteResp'
+    procedureName varchar2 := 'deleteResp';
   begin
     --
     -- log de entrada
@@ -44,8 +44,8 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-      set r.status = false
-      where r.cpf = pinCpf;
+    set    r.status = false
+    where  r.cpf = pinCpf;
     --
     -- log de saida
     --
@@ -60,10 +60,10 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE REATIVAR RESPONSAVEL
   --
-  create or replace procedure reActiveResp (
+  procedure reActiveResp (
     pinCpf  IN  responsavel.cpf%TYPE
   ) as
-    procedureName varchar2 := 'reActivarResp'
+    procedureName varchar2 := 'reActivarResp';
   begin
     --
     -- log de entrada
@@ -71,8 +71,8 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-      set r.status = true
-      where r.cpf = pinCpf;
+    set    r.status = true
+    where  r.cpf = pinCpf;
     --
     -- log de saida
     --
@@ -87,21 +87,20 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE UPDATE DO CPF
   --
-  create or replace procedure updateCpfResp (
+  procedure updateCpfResp (
          pCpfAntigo IN        responsavel.cpf%TYPE,
          pCpf       IN        responsavel.cpf%TYPE
   ) as
-    procedureName varchar2 := 'updateCpfResp'
+    procedureName varchar2 := 'updateCpfResp';
   begin
     --
     -- log de entrada
     --
     inicioProcedure_DBMS(procedureName, 'O');
-    -
     --
     update responsavel r
-    set (r.cpf = pCpf)
-    where r.cpf = pCpfAntigo;
+    set    r.cpf = pCpf
+    where  r.cpf = pCpfAntigo;
     --
     -- log de saida
     --
@@ -116,11 +115,11 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE UPDATE DO NOME
   --
-  create or replace procedure updateNomeResp (
-         pCpf IN        responsavel.cpf%TYPE,
+  procedure updateNomeResp (
+         pCpf       IN        responsavel.cpf%TYPE,
          pNome      IN        responsavel.nome%TYPE
   ) as
-    procedureName varchar2 := 'updateNomeResp'
+    procedureName varchar2 := 'updateNomeResp';
   begin
     --
     -- log de entrada
@@ -128,8 +127,8 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set (r.nome = pNome)
-    where r.cpf = pCpf;
+    set    r.nome = pNome
+    where  r.cpf = pCpf;
     --
     -- log de saida
     --
@@ -144,11 +143,11 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE UPDATE DO EMAIL
   --
-  create or replace procedure updateEmailResp (
-         pCpf IN        responsavel.cpf%TYPE,
+  procedure updateEmailResp (
+         pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE
   ) as
-    procedureName varchar2 := 'updateEmailResp'
+    procedureName varchar2 := 'updateEmailResp';
   begin
     --
     -- log de entrada
@@ -156,8 +155,8 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set (r.email = pEmail)
-    where r.cpf = pCpf;
+    set    r.email = pEmail
+    where  r.cpf = pCpf;
     --
     -- log de saida
     --
@@ -172,11 +171,11 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE UPDATE DO CELULAR
   --
-  create or replace procedure updateCelularlResp (
-         pCpf IN        responsavel.cpf%TYPE,
+  procedure updateCelularlResp (
+         pCpf       IN        responsavel.cpf%TYPE,
          pCelular   IN        responsavel.celular%TYPE
   ) as
-    procedureName varchar2 := 'updateCelularlResp'
+    procedureName varchar2 := 'updateCelularlResp';
   begin
     --
     -- log de entrada
@@ -184,8 +183,8 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set (r.celular = pCelular)
-    where r.cpf = pCpf;
+    set    r.celular = pCelular
+    where  r.cpf = pCpf;
     --
     -- log de saida
     --
@@ -200,8 +199,8 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE UPDATE DE SENHA.
   --
-  create or replace procedure updateSenhalResp (
-         pCpf IN        responsavel.cpf%TYPE,
+  procedure updateSenhalResp (
+         pCpf       IN        responsavel.cpf%TYPE,
          pSenha     IN        responsavel.senha%TYPE
   ) as
     procedureName varchar2 := 'updateSenhalResp'
@@ -212,8 +211,8 @@ create or replace package body ResponsavelDD as
     inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set (r.senha = pSenha)
-    where r.cpf = pCpf;
+    set    r.senha = pSenha
+    where  r.cpf = pCpf;
     --
     -- log de saida
     --

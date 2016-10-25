@@ -3,7 +3,7 @@ create or replace package ResponsavelDD as
   --
   -- PROCEDURE DE INSERT
   --
-  create or replace procedure insertResp (
+  procedure insertResp (
          pNome      IN        responsavel.nome%TYPE,
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE,
@@ -14,47 +14,47 @@ create or replace package ResponsavelDD as
   --
   -- PROCEDURE DE DELETE
   --
-  create or replace procedure deleteResp (
+  procedure deleteResp (
     pinCpf  IN  responsavel.cpf%TYPE
   );
   --
   -- PROCEDURE DE REATIVAR CONTA
   --
-  create or replace procedure reActiveResp (
+  procedure reActiveResp (
     pinCpf IN responsavel.cpf%TYPE
   );
   --
   -- PROCEDURE DE UPDATE CPF
   --
-  create or replace procedure updateCpfResp (
+  procedure updateCpfResp (
          pCpfAntigo IN        responsavel.cpf%TYPE,
          pCpf       IN        responsavel.cpf%TYPE
   );
   --
   -- PROCEDURE DE UPDATE NOME
   --
-  create or replace procedure updateNomeResp (
-         pCpfAntigo IN        responsavel.cpf%TYPE,
+  procedure updateNomeResp (
+         pCpf IN        responsavel.cpf%TYPE,
          pNome      IN        responsavel.nome%TYPE
   );
   --
   -- PROCEDURE DE UPDATE EMAIL
   --
-  create or replace procedure updateEmailResp (
-         pCpfAntigo IN        responsavel.cpf%TYPE,
+  procedure updateEmailResp (
+         pCpf IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE
   );
   --
   -- PROCEDURE DE UPDATE CELULAR
   --
-  create or replace procedure updateCelularResp (
-         pCpfAntigo IN        responsavel.cpf%TYPE,
+  procedure updateCelularResp (
+         pCpf IN        responsavel.cpf%TYPE,
          pCelular   IN        responsavel.celular%TYPE
   );
   --
   -- PROCEDURE DE UPDATE SENHA
   --
-  create or replace procedure updateSenhalResp (
+  procedure updateSenhalResp (
          pCpf IN        responsavel.cpf%TYPE,
          pSenha     IN        responsavel.senha%TYPE
   )
