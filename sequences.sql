@@ -13,4 +13,10 @@ create sequence seq_resp
   NOCACHE
   NOCYCLE;
 --
+--
+--SEQUENCE DO ID DA TROCA
+create sequence seq_troca
+  increment by 1
+  NOCACHE
+  NOCYCLE;
 /
