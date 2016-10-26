@@ -1,3 +1,6 @@
+drop sequence log_sequence;
+drop sequence seq_resp;
+drop sequence seq_troca;
 -- ARQUIVO RESPONSAVEL PELAS SEQUENCES DOS OBJETOS DE DADOS.
 --
 -- SEQUENCE DO ID DO LOG.

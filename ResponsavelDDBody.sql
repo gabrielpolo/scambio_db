@@ -7,22 +7,21 @@ create or replace package body ResponsavelDD as
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE,
          pCelular   IN        responsavel.celular%TYPE,
-         pSenha     IN        responsavel.senha%TYPE,
-         pStatus    IN        repsonsavel.status%TYPE
+         pSenha     IN        responsavel.senha%TYPE
   ) as
-    procedureName varchar2 := 'insertResp';
+    procedureName varchar2(30) := 'insertResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     insert into responsavel
-    values (seq_resp.nextval, pNome, pCpf, pEmail, pCelular, pSenha, true);
+    values (seq_resp.nextval, pNome, pCpf, pEmail, pCelular, pSenha, 1);
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -36,20 +35,20 @@ create or replace package body ResponsavelDD as
   procedure deleteResp (
     pinCpf  IN  responsavel.cpf%TYPE
   ) as
-    procedureName varchar2 := 'deleteResp';
+    procedureName varchar2(30) := 'deleteResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set    r.status = false
+    set    r.status = 0
     where  r.cpf = pinCpf;
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -63,20 +62,20 @@ create or replace package body ResponsavelDD as
   procedure reActiveResp (
     pinCpf  IN  responsavel.cpf%TYPE
   ) as
-    procedureName varchar2 := 'reActivarResp';
+    procedureName varchar2(30) := 'reActivarResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set    r.status = true
+    set    r.status = 1
     where  r.cpf = pinCpf;
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -91,12 +90,12 @@ create or replace package body ResponsavelDD as
          pCpfAntigo IN        responsavel.cpf%TYPE,
          pCpf       IN        responsavel.cpf%TYPE
   ) as
-    procedureName varchar2 := 'updateCpfResp';
+    procedureName varchar2(30) := 'updateCpfResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
     set    r.cpf = pCpf
@@ -104,7 +103,7 @@ create or replace package body ResponsavelDD as
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -119,12 +118,12 @@ create or replace package body ResponsavelDD as
          pCpf       IN        responsavel.cpf%TYPE,
          pNome      IN        responsavel.nome%TYPE
   ) as
-    procedureName varchar2 := 'updateNomeResp';
+    procedureName varchar2(30) := 'updateNomeResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
     set    r.nome = pNome
@@ -132,7 +131,7 @@ create or replace package body ResponsavelDD as
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -147,12 +146,12 @@ create or replace package body ResponsavelDD as
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE
   ) as
-    procedureName varchar2 := 'updateEmailResp';
+    procedureName varchar2(30) := 'updateEmailResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
     set    r.email = pEmail
@@ -160,7 +159,7 @@ create or replace package body ResponsavelDD as
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -171,16 +170,16 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE UPDATE DO CELULAR
   --
-  procedure updateCelularlResp (
+  procedure updateCelularResp (
          pCpf       IN        responsavel.cpf%TYPE,
          pCelular   IN        responsavel.celular%TYPE
   ) as
-    procedureName varchar2 := 'updateCelularlResp';
+    procedureName varchar2(30) := 'updateCelularlResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
     set    r.celular = pCelular
@@ -188,7 +187,7 @@ create or replace package body ResponsavelDD as
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then
@@ -203,12 +202,12 @@ create or replace package body ResponsavelDD as
          pCpf       IN        responsavel.cpf%TYPE,
          pSenha     IN        responsavel.senha%TYPE
   ) as
-    procedureName varchar2 := 'updateSenhalResp'
+    procedureName varchar2(30) := 'updateSenhalResp';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
     set    r.senha = pSenha
@@ -216,7 +215,7 @@ create or replace package body ResponsavelDD as
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   exception
     when others then

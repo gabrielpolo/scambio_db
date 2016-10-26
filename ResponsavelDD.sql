@@ -8,8 +8,7 @@ create or replace package ResponsavelDD as
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE,
          pCelular   IN        responsavel.celular%TYPE,
-         pSenha     IN        responsavel.senha%TYPE,
-         pStatus    IN        repsonsavel.status%TYPE
+         pSenha     IN        responsavel.senha%TYPE
   );
   --
   -- PROCEDURE DE DELETE
@@ -57,6 +56,6 @@ create or replace package ResponsavelDD as
   procedure updateSenhalResp (
          pCpf IN        responsavel.cpf%TYPE,
          pSenha     IN        responsavel.senha%TYPE
-  )
+  );
   --
 end ResponsavelDD;
