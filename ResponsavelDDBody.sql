@@ -17,17 +17,13 @@ create or replace package body ResponsavelDD as
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     insert into responsavel
-    values (seq_resp.nextval, pNome, pCpf, pEmail, pCelular, pSenha, 1);
+    values (seq_resp.nextval, pNome, pCpf, pEmail, pCelular, pSenha, 'A');
     --
     -- log de saida
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
   end;
   --
   -- PROCEDURE DE DELETAR RESPONSAVEL
@@ -43,18 +39,15 @@ create or replace package body ResponsavelDD as
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set    r.status = 0
+    set    r.status = 'D'
     where  r.cpf = pinCpf;
     --
     -- log de saida
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
   --
   -- PROCEDURE DE REATIVAR RESPONSAVEL
@@ -70,18 +63,15 @@ create or replace package body ResponsavelDD as
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update responsavel r
-    set    r.status = 1
+    set    r.status = 'A'
     where  r.cpf = pinCpf;
     --
     -- log de saida
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
   --
   -- PROCEDURE DE UPDATE DO CPF
@@ -105,11 +95,8 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
   --
   -- PROCEDURE DE UPDATE DO NOME
@@ -133,11 +120,8 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
   --
   -- PROCEDURE DE UPDATE DO EMAIL
@@ -161,11 +145,8 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
   --
   -- PROCEDURE DE UPDATE DO CELULAR
@@ -189,11 +170,8 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
   --
   -- PROCEDURE DE UPDATE DE SENHA.
@@ -217,11 +195,8 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null; -- log do erro.
-      --
+    commit;
+    --
   end;
 --
 end ResponsavelDD;

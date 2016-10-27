@@ -11,7 +11,7 @@ create or replace package body logProcedures as -- ESPEC DA PROCEDURE
   begin
     --
     insert into log
-    values (log_sequence.NEXTVAL, pinProcedure, pinTipo, sysdate, pinDesc);
+    values (log_sequence.NEXTVAL, pinProcedure, sysdate, pinDesc, pinTipo);
     --
   end;
   --
@@ -24,7 +24,7 @@ create or replace package body logProcedures as -- ESPEC DA PROCEDURE
   begin
     --
     insert into log
-      values (log_sequence.NEXTVAL, pinProcedure, pinTipo, sysdate, '=====Inicio da procedure=====');
+      values (log_sequence.NEXTVAL, pinProcedure, sysdate, '=====Inicio da procedure=====', pinTipo);
     --
   end;
   --
@@ -37,7 +37,7 @@ create or replace package body logProcedures as -- ESPEC DA PROCEDURE
   begin
     --
     insert into log
-      values (log_sequence.NEXTVAL, pinProcedure, pinTipo, sysdate, '=====Fim da procedure=====');
+      values (log_sequence.NEXTVAL, pinProcedure, sysdate, '=====Fim da procedure=====', pinTipo);
     --
   end;
 --
