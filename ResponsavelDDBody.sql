@@ -1,5 +1,36 @@
 create or replace package body ResponsavelDD as
 --
+  --
+  -- FUNCTION QUE CONFIRMA DADOS DO LOGIN
+  --
+  function confirmaLogin (
+    pinEmail IN responsavel.email%TYPE,
+    pinSenha IN responsavel.senha%TYPE
+  ) RETURN BOOLEAN 
+  as
+  --
+  vcSucesso varchar2(1) := null;
+  --
+  Begin
+  --
+  select 'S'
+  into vcSucesso
+  from responsavel r
+  where r.email = pinEmail and
+        r.senha = pinSenha;
+  --
+  if vcSucesso = 'S' then
+    --
+    return true;
+    --
+  else
+    --
+    return false;
+    --
+  end if;
+  --
+  end;
+  --
   -- PROCEDURE DE INSERT
   --
   procedure insertResp (
