@@ -9,9 +9,9 @@ create or replace package body ResponsavelDD as
   ) return boolean
   as
   --
-  procedureName varchar2(1) := 'confirmaLogin';
+  procedureName varchar2(30) := 'confirmaLogin';
   --
-  vcSucesso varchar2(1);
+  vcSucesso varchar2(1) := 'N';
   --
   Begin
     --
@@ -22,8 +22,10 @@ create or replace package body ResponsavelDD as
     select 'S'
     into   vcSucesso
     from   responsavel r
-    where  r.email = pinEmail and
-           r.senha = pinSenha;
+    where  r.email  = pinEmail and
+           r.senha  = pinSenha and
+           r.status = 'A';
+    --
     if vcSucesso = 'S' then
       --
       logProcedures.fimProcedure_DBMS(procedureName, 'O');
@@ -31,7 +33,7 @@ create or replace package body ResponsavelDD as
       return true;
     else
       --
-      logProcedures.scambioLog_DBMS(procedureName, 'Não foi encontrado usuario com esses dados.', 'N');
+      --logProcedures.scambioLog_DBMS(procedureName, 'Não foi encontrado usuario com esses dados.', 'N');
       --
       logProcedures.fimProcedure_DBMS(procedureName, 'O');
       --

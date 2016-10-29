@@ -6,9 +6,11 @@ procedure login (
   pinEmail   IN     responsavel.email%TYPE,
   pinSenha   IN     responsavel.senha%TYPE,
   pioSucesso IN OUT boolean
-) as
+)
+  as
   --
   procedureName varchar2(30) := 'login';
+  vboolSucesso  boolean      := false;
   --
   Begin
     --
@@ -17,8 +19,6 @@ procedure login (
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     pioSucesso := responsavelDD.confirmaLogin(pinEmail, pinSenha);
-    --
-    --logProcedures.scambioLog_DBMS(procedureName, 'Email => ' || pinEmail || ' Senha => ' || pinSenha || ' pioSucesso <= ' || pioSucesso, 'N');
     --
     -- log de saida
     --
