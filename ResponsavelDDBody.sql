@@ -6,29 +6,39 @@ create or replace package body ResponsavelDD as
   function confirmaLogin (
     pinEmail IN responsavel.email%TYPE,
     pinSenha IN responsavel.senha%TYPE
-  ) RETURN BOOLEAN 
+  ) return boolean
   as
   --
-  vcSucesso varchar2(1) := null;
+  procedureName varchar2(1) := 'confirmaLogin';
+  --
+  vcSucesso varchar2(1);
   --
   Begin
-  --
-  select 'S'
-  into vcSucesso
-  from responsavel r
-  where r.email = pinEmail and
-        r.senha = pinSenha;
-  --
-  if vcSucesso = 'S' then
     --
-    return true;
+    -- log de entrada
     --
-  else
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
-    return false;
+    select 'S'
+    into   vcSucesso
+    from   responsavel r
+    where  r.email = pinEmail and
+           r.senha = pinSenha;
+    if vcSucesso = 'S' then
+      --
+      logProcedures.fimProcedure_DBMS(procedureName, 'O');
+      --
+      return true;
+    else
+      --
+      logProcedures.scambioLog_DBMS(procedureName, 'Não foi encontrado usuario com esses dados.', 'N');
+      --
+      logProcedures.fimProcedure_DBMS(procedureName, 'O');
+      --
+      return false;
+      --
+    end if;
     --
-  end if;
-  --
   end;
   --
   -- PROCEDURE DE INSERT

@@ -8,14 +8,14 @@ create or replace package trocaDD as
     pIdTrocadorB    IN  troca.id_trocadorB%TYPE,
     pData           IN  troca.data_concretizada%TYPE,
     concretizacaoA  IN  troca.concretizacaoTrocadorA%TYPE,
-    concretizacaoB  IN  troca.concretizacaoTrocadorB%TYPE,
+    concretizacaoB  IN  troca.concretizacaoTrocadorB%TYPE
   );
   --
   --PROCEDURE DE UPDATE DATA
   --
   procedure updateData (
     pIdTroca  IN  troca.id%TYPE,
-    pData     IN  troca.data_concretizada%TYPE
+    pNovaData     IN  troca.data_concretizada%TYPE
   );
   --
   --PROCEDURE DE UPDATE CONCRETIZACAO

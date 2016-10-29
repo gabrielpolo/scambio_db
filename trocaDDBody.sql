@@ -5,27 +5,26 @@ create or replace package body trocaDD as
     pIdTrocadorB    IN  troca.id_trocadorB%TYPE,
     pData           IN  troca.data_concretizada%TYPE,
     concretizacaoA  IN  troca.concretizacaoTrocadorA%TYPE,
-    concretizacaoB  IN  troca.concretizacaoTrocadorB%TYPE,
+    concretizacaoB  IN  troca.concretizacaoTrocadorB%TYPE
   ) as
-    procedureName varchar2 := 'insertTroca';
+    --
+    procedureName varchar2(30) := 'insertTroca';
+    --
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     insert into troca
     values (seq_troca.nextval, pIdTrocadorA, pIdTrocadorB, pData, concretizacaoA, concretizacaoB);
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null;
-      --
+    commit;
+    --
   end;
   --
   --PROCEDURE DE UPDATE DA DATA.
@@ -34,12 +33,14 @@ create or replace package body trocaDD as
     pIdTroca  IN  troca.id%TYPE,
     pNovaData     IN  troca.data_concretizada%TYPE
   ) as
-    procedureName varchar2 := 'updateData';
+    --
+    procedureName varchar2(30) := 'updateData';
+    --
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     update troca t
     set    t.data_concretizada = pNovaData
@@ -47,13 +48,10 @@ create or replace package body trocaDD as
     --
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null;
-      --
+    commit;
+    --
   end;
   --
   --PROCEDURE DE UPDATE CONCRETIZACAO
@@ -65,12 +63,12 @@ create or replace package body trocaDD as
     pIdConcretizador  IN  varchar2,
     pIndConcretizacao IN  troca.concretizacaoTrocadorA%TYPE
   ) as
-    procedureName varchar2 := 'alterConcretizacao';
+    procedureName varchar2(30) := 'alterConcretizacao';
   begin
     --
     -- log de entrada
     --
-    inicioProcedure_DBMS(procedureName, 'O');
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
     if pIdConcretizador = 'A' then
       --
@@ -78,7 +76,7 @@ create or replace package body trocaDD as
       set    t.concretizacaoTrocadorA = pIndConcretizacao
       where  t.id = pIdTroca;
       --
-      scambioLog_DBMS(procedureName, 'Alterado concretizacaoTrocadorA <= '|| pIndConcretizacao, 'U');
+      logProcedures.scambioLog_DBMS(procedureName, 'Alterado concretizacaoTrocadorA <= '|| pIndConcretizacao, 'U');
       --
     else
       --
@@ -86,18 +84,15 @@ create or replace package body trocaDD as
       set    t.concretizacaoTrocadorB = pIndConcretizacao
       where  t.id = pIdTroca;
       --
-      scambioLog_DBMS(procedureName, 'Alterado concretizacaoTrocadorB <= '|| pIndConcretizacao, 'U');
+      logProcedures.scambioLog_DBMS(procedureName, 'Alterado concretizacaoTrocadorB <= '|| pIndConcretizacao, 'U');
       --
     end if;
     -- log de saida
     --
-    fimProcedure_DBMS(procedureName, 'O');
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
-  exception
-    when others then
-      --
-      null;
-      --
+    commit;
+    --
   end;
 --
 end trocaDD;
