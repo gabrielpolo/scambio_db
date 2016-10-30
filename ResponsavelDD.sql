@@ -1,10 +1,11 @@
 create or replace package ResponsavelDD as
   -- PACKEGE REPSONSAVEL PELOS COMANDO DE ACESSO A TABELA.
   --
-  function confirmaLogin (
+  procedure confirmaLogin (
          pinEmail IN responsavel.email%TYPE,
-         pinSenha IN responsavel.senha%TYPE
-  ) RETURN BOOLEAN;
+         pinSenha IN responsavel.senha%TYPE,
+         poResult OUT responsavel.id%TYPE
+  );
   --
   -- PROCEDURE DE INSERT
   --

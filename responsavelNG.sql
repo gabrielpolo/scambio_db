@@ -5,7 +5,7 @@ create or replace package responsavelNG as
 procedure login (
   pinEmail   IN     responsavel.email%TYPE,
   pinSenha   IN     responsavel.senha%TYPE,
-  pioSucesso IN OUT boolean
+  poResult   OUT    responsavel.id%TYPE
 );
 --
 end responsavelNG;

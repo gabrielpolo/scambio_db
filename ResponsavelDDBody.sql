@@ -3,15 +3,13 @@ create or replace package body ResponsavelDD as
   --
   -- FUNCTION QUE CONFIRMA DADOS DO LOGIN
   --
-  function confirmaLogin (
+  procedure confirmaLogin (
     pinEmail IN responsavel.email%TYPE,
-    pinSenha IN responsavel.senha%TYPE
-  ) return boolean
-  as
+    pinSenha IN responsavel.senha%TYPE,
+    poResult OUT responsavel.id%TYPE
+  ) as
   --
   procedureName varchar2(30) := 'confirmaLogin';
-  --
-  vcSucesso varchar2(1) := 'N';
   --
   Begin
     --
@@ -19,27 +17,14 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
-    select 'S'
-    into   vcSucesso
+    select r.id
+    into   poResult
     from   responsavel r
     where  r.email  = pinEmail and
            r.senha  = pinSenha and
            r.status = 'A';
     --
-    if vcSucesso = 'S' then
-      --
-      logProcedures.fimProcedure_DBMS(procedureName, 'O');
-      --
-      return true;
-    else
-      --
-      --logProcedures.scambioLog_DBMS(procedureName, 'Não foi encontrado usuario com esses dados.', 'N');
-      --
-      logProcedures.fimProcedure_DBMS(procedureName, 'O');
-      --
-      return false;
-      --
-    end if;
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   end;
   --
