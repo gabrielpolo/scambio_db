@@ -30,13 +30,14 @@ create or replace package body ResponsavelDD as
   --
   -- PROCEDURE DE INSERT
   --
-  procedure insertResp (
+  function insertResp (
          pNome      IN        responsavel.nome%TYPE,
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE,
          pCelular   IN        responsavel.celular%TYPE,
          pSenha     IN        responsavel.senha%TYPE
-  ) as
+  ) return number
+  as
     procedureName varchar2(30) := 'insertResp';
   begin
     --
@@ -52,6 +53,13 @@ create or replace package body ResponsavelDD as
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
     commit;
+    --
+    return 1;
+    --
+  exception
+    when DUP_VAL_ON_INDEX then
+      return 2;
+    --
   end;
   --
   -- PROCEDURE DE DELETAR RESPONSAVEL

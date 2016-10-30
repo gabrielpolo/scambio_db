@@ -9,13 +9,13 @@ create or replace package ResponsavelDD as
   --
   -- PROCEDURE DE INSERT
   --
-  procedure insertResp (
+  function insertResp (
          pNome      IN        responsavel.nome%TYPE,
          pCpf       IN        responsavel.cpf%TYPE,
          pEmail     IN        responsavel.email%TYPE,
          pCelular   IN        responsavel.celular%TYPE,
          pSenha     IN        responsavel.senha%TYPE
-  );
+  ) return number;
   --
   -- PROCEDURE DE DELETE
   --
