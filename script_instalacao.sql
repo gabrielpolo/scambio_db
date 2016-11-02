@@ -57,6 +57,18 @@ prompt      INSTALAÇÃO ENDERECODD CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
+prompt      INSTALANDO ITEMDD
+prompt ===================================
+--
+@itemDD.sql
+--
+@itemDDBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO ITEMDD CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
 prompt      INSTALANDO RESPONSAVELNG
 prompt ===================================
 --
@@ -69,7 +81,7 @@ prompt      INSTALAÇÃO REPONSAVELNG CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
-prompt      INSTALANDO RESPONSAVELNG
+prompt      INSTALANDO ENDERECONG
 prompt ===================================
 --
 @enderecoNG.sql
@@ -77,7 +89,19 @@ prompt ===================================
 @enderecoNGBody.sql
 --
 prompt ==============================================
-prompt      INSTALAÇÃO REPONSAVELNG CONCLUIDA.
+prompt      INSTALAÇÃO ENDERECONG CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
+prompt      INSTALANDO ITEMNG
+prompt ===================================
+--
+@itemNG.sql
+--
+@itemNGBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO ITEMNG CONCLUIDA.
 prompt ==============================================
 --
 commit;
