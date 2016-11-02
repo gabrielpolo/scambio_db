@@ -8,7 +8,7 @@ create or replace package body enderecoNG as
     pinTipo        IN  endereco.tipo%TYPE,
     pinCidade      IN  endereco.cidade%TYPE,
     pinEstado      IN  endereco.estado%TYPE,
-    pinResponsavel IN  endereco.responsavel%TYPE,
+    pinResponsavel IN  endereco.id_responsavel%TYPE,
     poSucesso      OUT number
   ) as
   --
@@ -25,7 +25,7 @@ create or replace package body enderecoNG as
      pinTipo        is not null and
      pinCidade      is not null and
      pinEstado      is not null and
-     pinResponsavel id not null          then
+     pinResponsavel is not null          then
      --
      enderecoDD.insertEndereco( pinLogradouro,
                                 pinNumero,
