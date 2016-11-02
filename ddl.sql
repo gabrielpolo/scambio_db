@@ -1,4 +1,4 @@
-/*
+ /*
 *
 * ARQUIVO COM OS INSERT HARDCODE DO PROJETO.
 *
@@ -97,3 +97,5 @@
 -- INSERT MARCA
   insert into marca values(1, 'NIKE');
   insert into marca values(2, 'ADIDAS');
+--
+commit;
