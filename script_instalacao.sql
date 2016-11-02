@@ -45,12 +45,36 @@ prompt      INSTALAÇÃO TROCADD CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
+prompt      INSTALANDO ENDERECODD
+prompt ===================================
+--
+@enderecoDD.sql
+--
+@enderecoDDBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO ENDERECODD CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
 prompt      INSTALANDO RESPONSAVELNG
 prompt ===================================
 --
 @responsavelNG.sql
 --
 @responsavelNGBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO REPONSAVELNG CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
+prompt      INSTALANDO RESPONSAVELNG
+prompt ===================================
+--
+@enderecoNG.sql
+--
+@enderecoNGBody.sql
 --
 prompt ==============================================
 prompt      INSTALAÇÃO REPONSAVELNG CONCLUIDA.
