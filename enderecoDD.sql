@@ -10,7 +10,7 @@ create or replace package enderecoDD as
     pinTipo        IN  endereco.tipo%TYPE,
     pinCidade      IN  endereco.cidade%TYPE,
     pinEstado      IN  endereco.estado%TYPE,
-    pinResponsavel IN  endereco.responsavel%TYPE
+    pinResponsavel IN  endereco.id_responsavel%TYPE
   );
   --
 end enderecoDD;

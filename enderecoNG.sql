@@ -1,6 +1,6 @@
 create or replace package enderecoNG as
   --
-  procedure insert (
+  procedure CadastrarEnd (
     pinLogradouro  IN  endereco.logradouro%TYPE,
     pinNumero      IN  endereco.numero%TYPE,
     pinCep         IN  endereco.cep%TYPE,
