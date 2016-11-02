@@ -69,6 +69,18 @@ prompt      INSTALAÇÃO ITEMDD CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
+prompt      INSTALANDO IMAGEMDD
+prompt ===================================
+--
+@imagemDD.sql
+--
+@imagemDDBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO IMAGEMDD CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
 prompt      INSTALANDO RESPONSAVELNG
 prompt ===================================
 --
@@ -102,6 +114,18 @@ prompt ===================================
 --
 prompt ==============================================
 prompt      INSTALAÇÃO ITEMNG CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
+prompt      INSTALANDO IMAGEMNG
+prompt ===================================
+--
+@imagemNG.sql
+--
+@imagemNGBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO IMAGEMNG CONCLUIDA.
 prompt ==============================================
 --
 commit;
