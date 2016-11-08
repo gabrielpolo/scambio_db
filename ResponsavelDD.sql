@@ -4,7 +4,8 @@ create or replace package ResponsavelDD as
   procedure confirmaLogin (
          pinEmail IN responsavel.email%TYPE,
          pinSenha IN responsavel.senha%TYPE,
-         poResult OUT responsavel.id%TYPE
+         poResultId   OUT responsavel.id%TYPE,
+         poResultNome OUT responsavel.nome%TYPE
   );
   --
   -- PROCEDURE DE INSERT
