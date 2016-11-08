@@ -5,7 +5,8 @@ create or replace package responsavelNG as
 procedure login (
   pinEmail   IN     responsavel.email%TYPE,
   pinSenha   IN     responsavel.senha%TYPE,
-  poResult   OUT    responsavel.id%TYPE
+  poResultId   OUT  responsavel.id%TYPE,
+  poResultNome OUT  responsavel.nome%TYPE 
 );
 
 procedure cadastrar (
