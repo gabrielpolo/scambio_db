@@ -5,7 +5,8 @@ create or replace package body responsavelNG as
 procedure login (
   pinEmail   IN     responsavel.email%TYPE,
   pinSenha   IN     responsavel.senha%TYPE,
-  poResult   OUT    responsavel.id%TYPE
+  poResultId   OUT  responsavel.id%TYPE,
+  poResultNome OUT  responsavel.nome%TYPE
 ) as
   --
   procedureName varchar2(30) := 'login';
@@ -16,7 +17,7 @@ procedure login (
     --
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
-    responsavelDD.confirmaLogin(pinEmail, pinSenha, poResult);
+    responsavelDD.confirmaLogin(pinEmail, pinSenha, poResultId, poResultNome );
     --
     -- log de saida
     --
