@@ -6,7 +6,8 @@ create or replace package body ResponsavelDD as
   procedure confirmaLogin (
     pinEmail IN responsavel.email%TYPE,
     pinSenha IN responsavel.senha%TYPE,
-    poResult OUT responsavel.id%TYPE
+    poResultId   OUT responsavel.id%TYPE,
+    poResultNome OUT responsavel.Nome%TYPE
   ) as
   --
   procedureName varchar2(30) := 'confirmaLogin';
@@ -17,8 +18,10 @@ create or replace package body ResponsavelDD as
     --
     logProcedures.inicioProcedure_DBMS(procedureName, 'O');
     --
-    select r.id
-    into   poResult
+    select r.id,
+           r.nome
+    into   poResultId,
+           poResultNome
     from   responsavel r
     where  r.email  = pinEmail and
            r.senha  = pinSenha and
