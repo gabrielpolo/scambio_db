@@ -69,6 +69,18 @@ prompt      INSTALAÇÃO ITEMDD CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
+prompt      INSTALANDO ITEMDD
+prompt ===================================
+--
+@ItemUtilDD.sql
+--
+@ItemUtilDDBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO ITEMDD CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
 prompt      INSTALANDO IMAGEMDD
 prompt ===================================
 --

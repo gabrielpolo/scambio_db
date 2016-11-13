@@ -6,7 +6,8 @@ create or replace package body itemDD as
     pinIdMarca        IN  item.id_marca%TYPE,
     pinIdTamanho      IN  item.id_tamanho%TYPE,
     pinIdSubCategoria IN  item.id_subcategoria%TYPE,
-    pinIdResponsavel  IN  item.id_responsavel%TYPE
+    pinIdResponsavel  IN  item.id_responsavel%TYPE,
+    pinGenero         IN  item.id_genero%TYPE
   ) return number
   as
   --
@@ -28,7 +29,8 @@ create or replace package body itemDD as
             pinIdMarca,
             pinIdTamanho,
             pinIdSubCategoria,
-            pinIdResponsavel  );
+            pinIdResponsavel,
+            pinGenero  );
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'I');
     --
@@ -41,6 +43,32 @@ create or replace package body itemDD as
       --
       return null;
       --
+  end;
+--
+--BUSCA ITEM POR ID
+--
+  function buscaItemPorID (
+    pinId   IN item.id%TYPE
+  ) return item%ROWTYPE
+  as
+  --
+  procedureName varchar2(30) := 'buscaItemPorID';
+  --
+  result item%ROWTYPE;
+  --
+  begin
+  --
+  logProcedures.inicioProcedure_DBMS(procedureName, 'I');
+  --
+  select *
+  into   result
+  from   item i
+  where  i.id = pinId;
+  --
+  logProcedures.fimProcedure_DBMS(procedureName, 'I');
+  --
+  return result;
+  --
   end;
 --
 end itemDD;
