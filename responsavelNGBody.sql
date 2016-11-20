@@ -58,4 +58,51 @@ procedure login (
   --
   end;
 --
+  procedure editarPerfil (
+    pinID     IN  responsavel.id%TYPE,
+    pinNome   IN  responsavel.nome%TYPE,
+    pinCpf    IN  responsavel.cpf%TYPE,
+    pinEmail  IN  responsavel.email%TYPE,
+    pinCelular IN responsavel.celular%TYPE,
+    pinSenha  IN  responsavel.senha%TYPE,
+    pinConfirmaSenha IN responsavel.senha%TYPE,
+    pinLogradouro  IN  endereco.logradouro%TYPE,
+    pinNumero  IN endereco.numero%TYPE,
+    pinCep  IN  endereco.cep%TYPE,
+    pinComplemento IN endereco.complemento%TYPE,
+    pinTipo IN endereco.tipo%TYPE,
+    pinCidade IN endereco.cidade%TYPE,
+    pinEstado IN endereco.estado%TYPE,
+    poSucesso OUT number
+  ) as
+  --
+  procedureName varchar2(30) := 'editarPerfil';
+  --
+  begin
+  --
+  if pinSenha = pinConfirmaSenha then
+    --
+    ResponsavelDD.updateCpfResp(pinID, pinCpf);
+    ResponsavelDD.updateNomeResp(pinID, pinNome);
+    ResponsavelDD.updateEmailResp(pinID, pinEmail);
+    ResponsavelDD.updateCelularResp(pinID, pinCelular);
+    ResponsavelDD.updateSenhalResp(pinID, pinSenha);
+    --
+    enderecoDD.updateEndereco(pinID, pinLogradouro, pinNumero, pinCep, pinComplemento, pinTipo, pinCidade, pinEstado);
+    --
+    poSucesso := 0;
+    --
+  else
+    --
+    poSucesso := 2;
+    --
+  end if;
+  --
+  exception
+    when others then
+      --
+      poSucesso := 1;
+      --
+  end;
+--
 end responsavelNG;

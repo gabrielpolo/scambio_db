@@ -33,35 +33,35 @@ create or replace package ResponsavelDD as
   -- PROCEDURE DE UPDATE CPF
   --
   procedure updateCpfResp (
-         pCpfAntigo IN        responsavel.cpf%TYPE,
+         pId IN        responsavel.id%TYPE,
          pCpf       IN        responsavel.cpf%TYPE
   );
   --
   -- PROCEDURE DE UPDATE NOME
   --
   procedure updateNomeResp (
-         pCpf IN        responsavel.cpf%TYPE,
+         pId IN        responsavel.id%TYPE,
          pNome      IN        responsavel.nome%TYPE
   );
   --
   -- PROCEDURE DE UPDATE EMAIL
   --
   procedure updateEmailResp (
-         pCpf IN        responsavel.cpf%TYPE,
+         pId IN        responsavel.id%TYPE,
          pEmail     IN        responsavel.email%TYPE
   );
   --
   -- PROCEDURE DE UPDATE CELULAR
   --
   procedure updateCelularResp (
-         pCpf IN        responsavel.cpf%TYPE,
+         pId IN        responsavel.id%TYPE,
          pCelular   IN        responsavel.celular%TYPE
   );
   --
   -- PROCEDURE DE UPDATE SENHA
   --
   procedure updateSenhalResp (
-         pCpf IN        responsavel.cpf%TYPE,
+         pId IN        responsavel.id%TYPE,
          pSenha     IN        responsavel.senha%TYPE
   );
   --

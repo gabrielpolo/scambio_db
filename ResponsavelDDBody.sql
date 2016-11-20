@@ -116,7 +116,7 @@ create or replace package body ResponsavelDD as
   -- PROCEDURE DE UPDATE DO CPF
   --
   procedure updateCpfResp (
-         pCpfAntigo IN        responsavel.cpf%TYPE,
+         pId IN        responsavel.id%TYPE,
          pCpf       IN        responsavel.cpf%TYPE
   ) as
     procedureName varchar2(30) := 'updateCpfResp';
@@ -128,7 +128,7 @@ create or replace package body ResponsavelDD as
     --
     update responsavel r
     set    r.cpf = pCpf
-    where  r.cpf = pCpfAntigo;
+    where  r.id = pId;
     --
     -- log de saida
     --
@@ -141,7 +141,7 @@ create or replace package body ResponsavelDD as
   -- PROCEDURE DE UPDATE DO NOME
   --
   procedure updateNomeResp (
-         pCpf       IN        responsavel.cpf%TYPE,
+         pId       IN        responsavel.id%TYPE,
          pNome      IN        responsavel.nome%TYPE
   ) as
     procedureName varchar2(30) := 'updateNomeResp';
@@ -153,7 +153,7 @@ create or replace package body ResponsavelDD as
     --
     update responsavel r
     set    r.nome = pNome
-    where  r.cpf = pCpf;
+    where  r.id = pId;
     --
     -- log de saida
     --
@@ -166,7 +166,7 @@ create or replace package body ResponsavelDD as
   -- PROCEDURE DE UPDATE DO EMAIL
   --
   procedure updateEmailResp (
-         pCpf       IN        responsavel.cpf%TYPE,
+         pId       IN        responsavel.id%TYPE,
          pEmail     IN        responsavel.email%TYPE
   ) as
     procedureName varchar2(30) := 'updateEmailResp';
@@ -178,7 +178,7 @@ create or replace package body ResponsavelDD as
     --
     update responsavel r
     set    r.email = pEmail
-    where  r.cpf = pCpf;
+    where  r.id = pId;
     --
     -- log de saida
     --
@@ -191,7 +191,7 @@ create or replace package body ResponsavelDD as
   -- PROCEDURE DE UPDATE DO CELULAR
   --
   procedure updateCelularResp (
-         pCpf       IN        responsavel.cpf%TYPE,
+         pId       IN        responsavel.id%TYPE,
          pCelular   IN        responsavel.celular%TYPE
   ) as
     procedureName varchar2(30) := 'updateCelularlResp';
@@ -203,7 +203,7 @@ create or replace package body ResponsavelDD as
     --
     update responsavel r
     set    r.celular = pCelular
-    where  r.cpf = pCpf;
+    where  r.id = pId;
     --
     -- log de saida
     --
@@ -216,7 +216,7 @@ create or replace package body ResponsavelDD as
   -- PROCEDURE DE UPDATE DE SENHA.
   --
   procedure updateSenhalResp (
-         pCpf       IN        responsavel.cpf%TYPE,
+         pId       IN        responsavel.id%TYPE,
          pSenha     IN        responsavel.senha%TYPE
   ) as
     procedureName varchar2(30) := 'updateSenhalResp';
@@ -228,7 +228,7 @@ create or replace package body ResponsavelDD as
     --
     update responsavel r
     set    r.senha = pSenha
-    where  r.cpf = pCpf;
+    where  r.id = pid;
     --
     -- log de saida
     --
