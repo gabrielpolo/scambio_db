@@ -16,8 +16,8 @@ create or replace package itemNG as
     poCategoria    OUT categoria.descricao%TYPE,
     poSubCategoria OUT subcategoria.descricao%TYPE,
     poMarca        OUT marca.descricao%TYPE,
-    poUsado        OUT item.usado%TYPE,
-    poGenero       OUT item.id_genero%TYPE,
+    poUsado        OUT varchar2,
+    poGenero       OUT varchar2,
     poTamanho      OUT tamanho.descricao%TYPE,
     poDescricao    OUT item.descricao%TYPE
   );

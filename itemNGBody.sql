@@ -58,8 +58,8 @@ create or replace package body itemNG as
     poCategoria    OUT categoria.descricao%TYPE,
     poSubCategoria OUT subcategoria.descricao%TYPE,
     poMarca        OUT marca.descricao%TYPE,
-    poUsado        OUT item.usado%TYPE,
-    poGenero       OUT item.id_genero%TYPE,
+    poUsado        OUT varchar2,
+    poGenero       OUT varchar2,
     poTamanho      OUT tamanho.descricao%TYPE,
     poDescricao    OUT item.descricao%TYPE
   ) as
@@ -76,15 +76,34 @@ create or replace package body itemNG as
     --
     if resultItem.id is not null then
       --
-      poGenero    := resultItem.ID_GENERO;
       poDescricao := resultItem.descricao;
-      poUsado     := resultItem.usado;
+      --poUsado     := resultItem.usado;
       --
       poMarca := ItemUtilDD.buscaMarcaPorID(resultItem.id_marca);
       --
       poTamanho := ItemUtilDD.buscaTamanhoPorID(resultItem.id_tamanho);
       --
       ItemUtilDD.buscaCategoriaESubPorID(resultItem.id_subcategoria, poCategoria, poSubCategoria);
+      --
+      if resultItem.ID_GENERO = 'F' then
+        --
+        poGenero := 'Feminino';
+        --
+      else
+        --
+        poGenero := 'Masculino';
+        --
+      end if;
+      --
+      if resultItem.usado = 'S' then
+        --
+        poUsado := 'Usado';
+        --
+      else
+        --
+        poUsado := 'Novo';
+        --
+      end if;
       --
     end if;
     --
