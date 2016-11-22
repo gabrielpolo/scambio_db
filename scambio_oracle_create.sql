@@ -42,6 +42,7 @@ CREATE TABLE ITEM (
     id_tamanho integer  NOT NULL,
     id_subcategoria integer  NOT NULL,
     id_responsavel integer  NOT NULL,
+    id_genero      char(1) not null,
     CONSTRAINT ITEM_pk PRIMARY KEY (id)
 ) ;
 
