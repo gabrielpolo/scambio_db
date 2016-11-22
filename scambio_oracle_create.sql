@@ -27,7 +27,7 @@ CREATE TABLE ENDERECO (
 -- Table: IMAGEM
 CREATE TABLE IMAGEM (
     id integer  NOT NULL,
-    imagem_arquivo blob  NOT NULL,
+    imagem_arquivo blob,
     id_item integer  NOT NULL,
     CONSTRAINT IMAGEM_pk PRIMARY KEY (id)
 ) ;
