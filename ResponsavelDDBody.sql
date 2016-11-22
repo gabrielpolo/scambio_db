@@ -1,6 +1,23 @@
 create or replace package body ResponsavelDD as
 --
   --
+  -- BUSCA USUARIO PELO ID
+  --
+  function buscaPorId (
+    pinId IN responsavel.id%TYPE
+  ) return responsavel%ROWTYPE
+  as
+  begin
+  --
+  select * into vrResp from responsavel r where r.id = pinId;
+  --
+  return vrResp;
+  --
+  exception
+    when others then
+      return null;
+  end;
+  --
   -- FUNCTION QUE CONFIRMA DADOS DO LOGIN
   --
   procedure confirmaLogin (

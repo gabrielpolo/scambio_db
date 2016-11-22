@@ -1,6 +1,10 @@
 create or replace package ResponsavelDD as
   -- PACKEGE REPSONSAVEL PELOS COMANDO DE ACESSO A TABELA.
   --
+  function buscaPorId (
+    pinId IN responsavel.id%TYPE
+  ) return responsavel%ROWTYPE;
+  --
   procedure confirmaLogin (
          pinEmail IN responsavel.email%TYPE,
          pinSenha IN responsavel.senha%TYPE,
