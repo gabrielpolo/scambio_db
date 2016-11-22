@@ -1,8 +1,13 @@
-create or replace procedure trocaNG as
+create or replace package featureTROCA as
   --
-    procedure efetivaTroca(
+    procedure TrocaItem(
       pinIdItem     IN item.id%TYPE,
       pinIdUsuario  IN responsavel.id%TYPE,
-      poSucesso     OUT number;
+      poSucesso     OUT number
     );
-end trocaNG;
+    --
+    function lBuscaUsuarioPorIDItem (
+    pinIdItem IN item.id%TYPE
+    ) return responsavel%ROWTYPE;
+    --
+end featureTROCA;

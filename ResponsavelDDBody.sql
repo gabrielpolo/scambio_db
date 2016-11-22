@@ -7,6 +7,7 @@ create or replace package body ResponsavelDD as
     pinId IN responsavel.id%TYPE
   ) return responsavel%ROWTYPE
   as
+  vrResp responsavel%ROWTYPE;
   begin
   --
   select * into vrResp from responsavel r where r.id = pinId;

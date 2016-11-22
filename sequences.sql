@@ -4,7 +4,6 @@ drop sequence seq_troca;
 drop sequence seq_endereco;
 drop sequence seq_item;
 drop sequence seq_img;
-drop sequence seq_troca;
 drop sequence seq_rel_troca_item;
 -- ARQUIVO RESPONSAVEL PELAS SEQUENCES DOS OBJETOS DE DADOS.
 --
@@ -45,13 +44,6 @@ create sequence seq_item
 --
 --SEQUENCE DO ID DA IMAGEM
 create sequence seq_img
-  increment by 1
-  NOCACHE
-  NOCYCLE;
---
---
---SEQUENCE DO ID DA TROCA
-create sequence seq_troca
   increment by 1
   NOCACHE
   NOCYCLE;

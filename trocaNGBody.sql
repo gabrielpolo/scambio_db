@@ -1,10 +1,9 @@
-create or replace procedure body trocaNG as
+create or replace package body featureTROCA as
 --
   --
-  function buscaUsuarioPorIDItem (
+  function lBuscaUsuarioPorIDItem (
     pinIdItem IN item.id%TYPE
-  ) return responsavel%ROWTYPE
-  as
+  ) return responsavel%ROWTYPE is
     vrResp responsavel%ROWTYPE;
   begin
     select r.*
@@ -32,7 +31,7 @@ create or replace procedure body trocaNG as
     --
     vnIDTROCA := seq_troca.nextval;
     --
-    insert into troca values (vnIDTROCA,
+    trocaDD.insertTroca(vnIDTROCA,
                                pinDonoDoItem.id,
                                pinSolicitador.id,
                                sysdate,
@@ -76,7 +75,7 @@ end;
 procedure efetivaTroca(
   pinIdItem     IN item.id%TYPE,
   pinIdUsuario  IN responsavel.id%TYPE,
-  poSucesso     OUT number;
+  poSucesso     OUT number
 ) as
   --
   vnIdItem      item.id%TYPE := pinIdItem;
@@ -86,7 +85,7 @@ procedure efetivaTroca(
   --
 begin
   -- busco o dono do item
-  vrDonoDoItem  := buscaUsuarioPorIDItem(vnIdItem);
+  vrDonoDoItem  := lBuscaUsuarioPorIDItem(vnIdItem);
   vrSolicitador := ResponsavelDD.buscaPorId(vnIdResp);
   -- vejo se o item ja nao esta com a troca ativa.
   if lTrocaAtiva(vnIdItem, vrSolicitador) then
@@ -100,4 +99,4 @@ begin
   end if;
 end;
 --
-end trocaNG;
+end featureTROCA;
