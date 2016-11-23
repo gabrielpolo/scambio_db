@@ -1,6 +1,30 @@
 create or replace package body ResponsavelDD as
 --
   --
+  -- BUSCA POR ID DO ITEM
+  --
+  function buscaPorIdItem (
+    pinId IN item.id%TYPE
+  ) return responsavel%ROWTYPE as
+    --
+    vrResp responsavel%ROWTYPE;
+    --
+  begin
+    --
+    select r.*
+    into   vrResp
+    from   responsavel r,
+           item t
+    where  t.id = pinId and
+           r.id = t.id_responsavel;
+    --
+    return vrResp;
+    --
+  exception
+    when others then
+      return null;
+  end;
+  --
   -- BUSCA USUARIO PELO ID
   --
   function buscaPorId (

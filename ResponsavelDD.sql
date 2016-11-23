@@ -5,6 +5,10 @@ create or replace package ResponsavelDD as
     pinId IN responsavel.id%TYPE
   ) return responsavel%ROWTYPE;
   --
+  function buscaPorIdItem (
+    pinId IN item.id%TYPE
+  ) return responsavel%ROWTYPE;
+  --
   procedure confirmaLogin (
          pinEmail IN responsavel.email%TYPE,
          pinSenha IN responsavel.senha%TYPE,
