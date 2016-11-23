@@ -69,7 +69,7 @@ prompt      INSTALAÇÃO ITEMDD CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
-prompt      INSTALANDO ITEMDD
+prompt      INSTALANDO ITEMUTILDD
 prompt ===================================
 --
 @ItemUtilDD.sql
@@ -77,7 +77,7 @@ prompt ===================================
 @ItemUtilDDBody.sql
 --
 prompt ==============================================
-prompt      INSTALAÇÃO ITEMDD CONCLUIDA.
+prompt      INSTALAÇÃO ITEMUTILDD CONCLUIDA.
 prompt ==============================================
 --
 prompt ===================================
@@ -138,6 +138,18 @@ prompt ===================================
 --
 prompt ==============================================
 prompt      INSTALAÇÃO IMAGEMNG CONCLUIDA.
+prompt ==============================================
+--
+prompt ===================================
+prompt      INSTALANDO FEATURETROCA
+prompt ===================================
+--
+@featureTroca.sql
+--
+@featureTrocaBody.sql
+--
+prompt ==============================================
+prompt      INSTALAÇÃO FEATURETROCA CONCLUIDA.
 prompt ==============================================
 --
 commit;

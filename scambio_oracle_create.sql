@@ -76,7 +76,8 @@ CREATE TABLE PERGUNTA (
 -- Table: REL_TROCA_ITEM
 CREATE TABLE REL_TROCA_ITEM (
     id integer  NOT NULL,
-    id_item integer  NOT NULL,
+    id_item_a integer,
+    id_item_b integer,
     id_troca integer  NOT NULL,
     CONSTRAINT REL_TROCA_ITEM_pk PRIMARY KEY (id)
 ) ;
