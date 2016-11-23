@@ -73,5 +73,4 @@ create or replace package body featureTROCA as
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
   end;
---
 end featureTROCA;
