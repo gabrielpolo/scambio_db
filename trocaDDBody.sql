@@ -1,5 +1,41 @@
 create or replace package body trocaDD as
 --
+  function buscaTrocaCorrente (
+    pinIdItem   IN item.id%TYPE,
+    pinIdResponsavel IN responsavel.id%TYPE
+  ) return boolean as
+    --
+    procedureName varchar2(30) := 'buscaTrocaCorrente';
+    --
+    vresp char(1);
+    --
+  begin
+    --
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
+    --
+    select 'S'
+    into   vresp
+    from   troca t,
+           rel_troca_item rel
+    where  rel.id_item_a    = pinIdItem and
+           t.id             = rel.id_troca and
+           t.id_trocadorB   = pinIdResponsavel;
+    --
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
+    --
+    if vresp = 'S' then
+      --
+      return true;
+      --
+    end if;
+    --
+    return false;
+    --
+  exception
+    when others then
+      return false;
+  end;
+--
   function completaTroca (
     pinItemB    IN item.id%TYPE,
     pinIdTroca  IN troca.id%TYPE,
@@ -18,7 +54,7 @@ create or replace package body trocaDD as
     --
     update  rel_troca_item rel
       set   rel.id_item_b = pinItemB
-      where rel.id = pinIdTroca;
+      where rel.id_troca = pinIdTroca;
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'O');
     --
