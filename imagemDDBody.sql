@@ -17,7 +17,7 @@ create or replace package body imagemDD as
     vnIDImagem := seq_img.nextval;
     --
     insert into imagem
-      values (vnIDImagem, pinBlobImg, pinIdItem);
+      values (vnIDImagem, pinBlobImg, pinIdItem, sysdate);
     --
     logProcedures.fimProcedure_DBMS(procedureName, 'I');
     --
