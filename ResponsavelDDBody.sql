@@ -35,6 +35,7 @@ create or replace package body ResponsavelDD as
   begin
   --
   select * into vrResp from responsavel r where r.id = pinId;
+  logProcedures.scambioLog_DBMS('buscaPorId', '[DEBUG]idresp => '||vrResp.id , 'N');
   --
   return vrResp;
   --
