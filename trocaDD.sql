@@ -2,6 +2,11 @@ create or replace package trocaDD as
 -- PACKAGE PARA TRATAMENTO DOS DADOS NA TABELA TROCA.
 --
   --
+  -- RECUSA TROCA
+  function recusaTroca (
+    pinIdTroca   IN troca.id%TYPE
+  ) return number;
+  --
   -- BUSCA PARA VER SE O ITEM E O USUARIO JA N ESTAO EM TROCA CORRENTE.
   function buscaTrocaCorrente (
     pinIdItem   IN item.id%TYPE,

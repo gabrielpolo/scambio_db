@@ -1,5 +1,26 @@
 create or replace package body featureTROCA as
 --
+  procedure recusaTroca (
+    pinIdTroca  IN  troca.id%TYPE,
+    poSucesso   OUT number
+  ) as
+    --
+    procedureName   varchar2(30) := 'recusaTroca';
+    --
+  begin
+    --
+    logProcedures.inicioProcedure_DBMS(procedureName, 'O');
+    --
+    if pinIdTroca is not null then
+      --
+      poSucesso := trocaDD.recusaTroca(pinIdTroca);
+      --
+    end if;
+    --
+    logProcedures.fimProcedure_DBMS(procedureName, 'O');
+    --
+  end;
+--
   procedure efetivaTroca (
     pinIdItemA       IN item.id%TYPE,
     pinIdItemB       IN item.id%TYPE,

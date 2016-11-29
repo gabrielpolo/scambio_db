@@ -1,5 +1,31 @@
 create or replace package body trocaDD as
 --
+  function recusaTroca (
+    pinIdTroca   IN troca.id%TYPE
+  ) return number as
+    --
+    procedureName varchar2(30) := 'recusaTroca';
+    --
+  begin
+    --
+    logProcedures.inicioProcedure_DBMS(procedureName, 'D');
+    --
+    delete from rel_troca_item rel where rel.id_troca = pinIdTroca;
+    --
+    logProcedures.scambioLog_DBMS(procedureName, 'Deletado REL_TROCA_ITEM de ID => '||pinIdTroca , 'D');
+    --
+    delete from troca t where t.id = pinIdTroca;
+    --
+    logProcedures.scambioLog_DBMS(procedureName, 'Deletado TROCA de ID => '||pinIdTroca , 'D');
+    --
+    logProcedures.fimProcedure_DBMS(procedureName, 'D');
+    --
+    return 0;
+  exception
+    when others then
+      return 1;
+  end;
+--
   function buscaTrocaCorrente (
     pinIdItem   IN item.id%TYPE,
     pinIdResponsavel IN responsavel.id%TYPE
